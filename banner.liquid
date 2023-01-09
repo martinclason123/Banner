@@ -1,0 +1,93 @@
+{{ "swiper-bundle.min.css" | asset_url | stylesheet_tag }}
+{{ "mc-banner.css" | asset_url | stylesheet_tag }}
+
+
+<section class="mc__banner--top">
+    <picture class="mc__swiper--background" alt="background image">
+      <source srcset="{{ block.settings.desktopImage | img_url: 'master'}}" media="(min-width: 641px)" />
+      <img src="{{ block.settings.mobileImage | img_url: 'master'}}" alt="background image" />
+    </picture>
+    <p>{{ block.settings.headerText }}</p>
+    <div class="mc__slideshowContainer">
+      <!-- Slider main container -->
+      <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          {%- for block in section.blocks -%}
+            <div class="swiper-slide mc__bannerSlide">
+                <a class="mc__bannerLink" href="{{ block.settings.link }}">{{ block.settings.sliderText}}</a>
+              </div>
+          {% endfor %}
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+
+    <div class="swiper-pagination"></div>
+  </section>
+
+{{ 'swiper-bundle.min.js' | asset_url | script_tag }}
+{{ 'mc-banner.js' | asset_url | script_tag }}
+
+{% schema %}
+{
+    "name": "swiper banner",
+    "settings": [
+      
+    ],
+    "blocks" : [
+      {
+        "type" : "column",
+        "name" : "slide",
+        "settings" : [
+          {
+            "type": "image_picker",
+            "id" : "desktopImage",
+            "label" :  "Desktop Image"
+          },
+          {
+            "type": "image_picker",
+            "id" : "mobileImage",
+            "label" :  "Desktop Image"
+          },
+          {
+            "type": "text",
+            "id": "headerText",
+            "label": "Heading Text",
+            "default": "Header Text Here",
+            "placeholder": "Header Text",
+            "info": "Header Text"
+          },
+          {
+            "type": "text",
+            "id": "slideText",
+            "label": "Slider Text",
+            "default": "Subheader Text Here",
+            "placeholder": "Subheader Text",
+            "info": "Subheader Text"
+          },
+          {
+            "type": "text",
+            "id": "buttonText",
+            "label": "Button Text",
+            "default": "SHOP NOW",
+            "placeholder": "Text Button",
+            "info": "Text Button"
+          },
+          {
+            "type": "url",
+            "id": "link",
+            "label": "Link"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Swiper Banner"
+      }
+    ]
+  }
+{% endschema %}

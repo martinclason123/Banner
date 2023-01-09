@@ -25,6 +25,11 @@
   text-decoration: none;
   color: inherit;
   font-size: 1em;
+  transition: all 200ms ease-in-out;
+}
+.mc__bannerLink:hover {
+  font-weight: 900;
+  cursor: pointer;
 }
 .mc__bannerSlide {
   font-size: 2.4em;
