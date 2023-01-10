@@ -1,6 +1,6 @@
 const slidesArray = document.querySelectorAll(".mc__bannerSlide");
 const spaceBetweenSlides = slidesArray.length * 10;
-const swiper = new Swiper(".swiper", {
+const swiper = new Swiper(".swiper_banner", {
   // Optional parameters
   direction: "horizontal",
   loop: true,
