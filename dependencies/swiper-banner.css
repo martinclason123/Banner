@@ -89,6 +89,10 @@
     margin: 0.2em;
     line-height: 1;
   }
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none !important;
+  }
 }
 
 @media (min-width: 1921px) {
